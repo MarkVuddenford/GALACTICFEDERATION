@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тар-Вольтум | Древняя тайна</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="particles-container"></div>
+<div id="bg-visions-container"></div>
+<div class="fog fog1"></div>
+<div class="fog fog2"></div>
+<div class="fog fog3"></div>
+
+<audio id="bg-music" loop></audio>
+
+<button id="music-toggle" class="music-btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727218.png" alt="music" id="music-icon">
+</button>
+
+<div id="main-screen" class="screen active">
+    <div class="main-container">
+
+        <div class="logo-container">
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588294.png" alt="rune" class="main-logo">
+            <div class="logo-glow"></div>
+        </div>
+
+        <h1 class="main-title"><span class="glow-text">Т А Й Н А</span></h1>
+        <p class="subtitle">Древнее знание скрыто за семью печатями.<br>Докажи своё право узнать его.</p>
+
+        <div class="cipher-display">
+            <div class="cipher-label-row">
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="cipher-icon">
+                <span class="cipher-label">СОБРАННЫЙ ШИФР</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="cipher-icon flip">
+            </div>
+            <div id="cipher-parts" class="cipher-parts">
+                <span class="cipher-part" id="cp1">_ _</span>
+                <span class="cipher-part" id="cp2">_ _ _</span>
+                <span class="cipher-part" id="cp3">_ _ _</span>
+                <span class="cipher-part" id="cp4">_ _</span>
+                <span class="cipher-part" id="cp5">_ _</span>
+                <span class="cipher-part" id="cp6">_ _</span>
+                <span class="cipher-part" id="cp7">_ _</span>
+            </div>
+        </div>
+
+        <div class="games-grid">
+
+            <div class="game-card" id="game-card-1" onclick="openGame(1)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="lightning" class="game-img">
+                <div class="game-title">Испытание Молнии</div>
+                <div class="game-desc">Останови стрелу богов</div>
+                <div class="game-status" id="gs1">ДОСТУПНО</div>
+                <div class="game-reward" id="gr1"></div>
+            </div>
+
+            <div class="game-card" id="game-card-2" onclick="openGame(2)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="eye" class="game-img">
+                <div class="game-title">Взор Оракула</div>
+                <div class="game-desc">Угадай число от 1 до 20</div>
+                <div class="game-status" id="gs2">ДОСТУПНО</div>
+                <div class="game-reward" id="gr2"></div>
+            </div>
+
+            <div class="game-card" id="game-card-3" onclick="openGame(3)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="rune" class="game-img">
+                <div class="game-title">Порядок Рун</div>
+                <div class="game-desc">Повтори последовательность</div>
+                <div class="game-status" id="gs3">ДОСТУПНО</div>
+                <div class="game-reward" id="gr3"></div>
+            </div>
+
+            <div class="game-card" id="game-card-4" onclick="openGame(4)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3588/3588294.png" alt="mirror" class="game-img">
+                <div class="game-title">Зеркало Памяти</div>
+                <div class="game-desc">Найди пары скрытых рун</div>
+                <div class="game-status" id="gs4">ДОСТУПНО</div>
+                <div class="game-reward" id="gr4"></div>
+            </div>
+
+            <div class="game-card" id="game-card-5" onclick="openGame(5)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="game-img">
+                <div class="game-title">Шифр Цезаря</div>
+                <div class="game-desc">Расшифруй сдвинутое послание</div>
+                <div class="game-status" id="gs5">ДОСТУПНО</div>
+                <div class="game-reward" id="gr5"></div>
+            </div>
+
+            <div class="game-card" id="game-card-6" onclick="openGame(6)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/1041/1041659.png" alt="anagram" class="game-img">
+                <div class="game-title">Анаграмма Рун</div>
+                <div class="game-desc">Собери слово из хаоса букв</div>
+                <div class="game-status" id="gs6">ДОСТУПНО</div>
+                <div class="game-reward" id="gr6"></div>
+            </div>
+
+            <div class="game-card" id="game-card-7" onclick="openGame(7)">
+                <div class="game-card-glow"></div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="morse" class="game-img">
+                <div class="game-title">Морзе Эльдарии</div>
+                <div class="game-desc">Прочитай сигналы древних</div>
+                <div class="game-status" id="gs7">ДОСТУПНО</div>
+                <div class="game-reward" id="gr7"></div>
+            </div>
+
+        </div>
+
+        <button class="decipher-btn" id="decipher-btn" onclick="openDecipherScreen()">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="btn-icon">
+            <span>РАСШИФРОВАТЬ</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="btn-icon flip">
+        </button>
+
+    </div>
+</div>
+
+<div id="decipher-screen" class="screen">
+    <div class="decipher-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3588/3588294.png" alt="rune" class="decipher-top-img">
+        <h2 class="decipher-title">ВВЕДИ ШИФР</h2>
+        <p class="decipher-hint">Собери все семь частей и раскрой древнюю тайну Эльдарии</p>
+        <div class="cipher-input-group">
+            <input type="text" id="cipher-input" class="cipher-input"
+                   placeholder="_ _ _ _ _ _ _ _ _ _" maxlength="10">
+            <div class="correct-cipher-hint" id="full-cipher-hint"></div>
+        </div>
+        <button class="decipher-action-btn" onclick="attemptDecipher()">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="l" class="btn-icon-sm">
+            РАСШИФРОВАТЬ
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="l" class="btn-icon-sm">
+        </button>
+        <button class="back-btn" onclick="closeDecipherScreen()">← НАЗАД</button>
+        <div id="decipher-error" class="decipher-error"></div>
+    </div>
+</div>
+
+<div id="final-screen" class="screen">
+    <div class="final-container">
+        <div class="final-rune-container">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Tar Volthum" class="final-rune-img">
+            <div class="rune-rings">
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+                <div class="ring ring3"></div>
+            </div>
+            <div id="rune-particles"></div>
+        </div>
+        <h2 class="final-title">ТАЙНА РАСКРЫТА</h2>
+        <div class="final-subtitle">Tar Volthum — Печать первородной молнии</div>
+        <div id="reveal-text" class="reveal-text"></div>
+        <div class="final-decoration">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="d" class="deco-img">
+            <span>— Эльдарии —</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="d" class="deco-img flip">
+        </div>
+        <button class="back-btn" onclick="resetToMain()">↩ В НАЧАЛО</button>
+    </div>
+</div>
+
+<div id="modal-1" class="game-modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal(1)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="l" class="modal-header-img">
+            <h3 class="modal-title">Испытание Молнии</h3>
+        </div>
+        <p class="modal-desc">Молния богов мечется между мирами. Останови иглу точно в золотой зоне!</p>
+        <div class="lightning-arena">
+            <div class="arena-bg"></div>
+            <div class="power-bar-container">
+                <div class="power-bar-label">СИЛА УДАРА</div>
+                <div class="power-bar-track">
+                    <div id="power-fill" class="power-fill"></div>
+                    <div class="power-zones">
+                        <div class="pz pz-red"></div>
+                        <div class="pz pz-orange"></div>
+                        <div class="pz pz-green"></div>
+                        <div class="pz pz-orange2"></div>
+                        <div class="pz pz-red2"></div>
+                    </div>
+                    <div id="power-needle" class="power-needle"></div>
+                </div>
+                <div class="zone-labels">
+                    <span style="color:var(--red)">СЛАБО</span>
+                    <span style="color:var(--green)">ИДЕАЛЬНО</span>
+                    <span style="color:var(--red)">СЛАБО</span>
+                </div>
+            </div>
+            <div class="lightning-visual">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="bolt" class="bolt-img" id="bolt-img">
+                <div class="bolt-glow"></div>
+            </div>
+        </div>
+        <button class="game-action-btn" id="lightning-btn" onclick="lightningStrike()">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="s" class="btn-icon-sm"> УДАР!
+        </button>
+        <div id="lightning-result" class="game-result"></div>
+        <div id="lightning-attempts" class="attempts-display"></div>
+    </div>
+</div>
+
+<div id="modal-2" class="game-modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal(2)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="eye" class="modal-header-img">
+            <h3 class="modal-title">Взор Оракула</h3>
+        </div>
+        <p class="modal-desc">Оракул видит всё. Он загадал число от 1 до 20.<br>У тебя 7 попыток — используй подсказки!</p>
+
+        <div class="oracle-ball-container">
+            <div class="oracle-ball" id="oracle-ball">
+                <div class="oracle-ball-inner">
+                    <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="eye" class="oracle-eye-img">
+                </div>
+                <div class="oracle-ball-glow"></div>
+                <div class="oracle-ball-ring"></div>
+            </div>
+            <div id="oracle-ball-msg" class="oracle-ball-msg">Загляни в шар...</div>
+        </div>
+
+        <div class="oracle-numbers-grid" id="oracle-numbers-grid"></div>
+
+        <div class="oracle-input-row">
+            <input type="number" id="oracle-input" class="oracle-number-input" min="1" max="20" placeholder="1–20">
+            <button class="game-action-btn small-btn" onclick="oracleGuess()">УГАДАТЬ</button>
+        </div>
+
+        <div id="oracle-attempts-bar" class="oracle-attempts-bar"></div>
+        <div id="oracle-result" class="game-result"></div>
+    </div>
+</div>
+
+<div id="modal-3" class="game-modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal(3)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="rune" class="modal-header-img">
+            <h3 class="modal-title">Порядок Рун</h3>
+        </div>
+        <p class="modal-desc">Древние руны вспыхивают в определённом порядке. Запомни и повтори!</p>
+        <div class="runes-grid">
+            <div class="rune-btn" id="rune-0" onclick="runeClick(0)">
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="r0" class="rune-btn-img">
+                <span class="rune-letter">ᚠ</span>
+            </div>
+            <div class="rune-btn" id="rune-1" onclick="runeClick(1)">
+                <img src="https://cdn-icons-png.flaticon.com/512/3588/3588294.png" alt="r1" class="rune-btn-img">
+                <span class="rune-letter">ᚢ</span>
+            </div>
+            <div class="rune-btn" id="rune-2" onclick="runeClick(2)">
+                <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="r2" class="rune-btn-img">
+                <span class="rune-letter">ᚦ</span>
+            </div>
+            <div class="rune-btn" id="rune-3" onclick="runeClick(3)">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="r3" class="rune-btn-img">
+                <span class="rune-letter">ᚨ</span>
+            </div>
+        </div>
+        <div id="rune-status" class="rune-status">Нажми НАЧАТЬ</div>
+        <div class="rune-progress"><div class="rune-progress-fill" id="rune-progress-fill"></div></div>
+        <button class="game-action-btn" id="rune-start-btn" onclick="startRuneGame()">НАЧАТЬ</button>
+        <div id="rune-result" class="game-result"></div>
+    </div>
+</div>
+
+<div id="modal-4" class="game-modal">
+    <div class="modal-content wide">
+        <button class="modal-close" onclick="closeModal(4)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588294.png" alt="mirror" class="modal-header-img">
+            <h3 class="modal-title">Зеркало Памяти</h3>
+        </div>
+        <p class="modal-desc">Восемь пар древних рун скрыты под печатями. Найди все пары!</p>
+        <div id="memory-grid" class="memory-grid"></div>
+        <div id="memory-status" class="rune-status">Открой первую руну</div>
+        <div id="memory-result" class="game-result"></div>
+    </div>
+</div>
+
+<div id="modal-5" class="game-modal">
+    <div class="modal-content wide">
+        <button class="modal-close" onclick="closeModal(5)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="scroll" class="modal-header-img">
+            <h3 class="modal-title">Шифр Цезаря</h3>
+        </div>
+        <p class="modal-desc">Эльдарии зашифровали послание сдвигом букв. Крути колесо сдвига и угадай исходное слово!</p>
+        <div class="caesar-area">
+            <div class="caesar-encrypted-box">
+                <div class="caesar-label">ЗАШИФРОВАНО</div>
+                <div id="caesar-encrypted" class="caesar-encrypted-text"></div>
+            </div>
+            <div class="caesar-wheel-container">
+                <div class="caesar-wheel-label">СДВИГ</div>
+                <div class="caesar-wheel">
+                    <button class="wheel-btn" onclick="caesarShiftChange(-1)">◀</button>
+                    <div id="caesar-shift-display" class="caesar-shift-display">1</div>
+                    <button class="wheel-btn" onclick="caesarShiftChange(1)">▶</button>
+                </div>
+                <div class="caesar-preview-label">ПРЕДПРОСМОТР</div>
+                <div id="caesar-preview" class="caesar-preview"></div>
+            </div>
+            <div class="caesar-alphabet-strip">
+                <div class="alphabet-label">АЛФАВИТ</div>
+                <div id="alphabet-display" class="alphabet-display"></div>
+            </div>
+        </div>
+        <div class="caesar-input-row">
+            <input type="text" id="caesar-answer" class="game-text-input" placeholder="Введи расшифрованное слово..." maxlength="20">
+            <button class="game-action-btn small-btn" onclick="checkCaesar()">ПРОВЕРИТЬ</button>
+        </div>
+        <div id="caesar-result" class="game-result"></div>
+        <div id="caesar-attempts" class="attempts-display"></div>
+    </div>
+</div>
+
+<div id="modal-6" class="game-modal">
+    <div class="modal-content wide">
+        <button class="modal-close" onclick="closeModal(6)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041659.png" alt="anagram" class="modal-header-img">
+            <h3 class="modal-title">Анаграмма Рун</h3>
+        </div>
+        <p class="modal-desc">Буквы древнего слова перепутаны злым заклятием. Кликай на буквы в правильном порядке!</p>
+        <div class="anagram-area">
+            <div class="anagram-hint-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png" alt="hint" class="anagram-hint-img">
+                <div id="anagram-hint" class="anagram-hint-text"></div>
+            </div>
+            <div class="anagram-assembled-box">
+                <div class="anagram-assembled-label">СОБРАННОЕ СЛОВО</div>
+                <div id="anagram-assembled" class="anagram-assembled"></div>
+            </div>
+            <div id="anagram-letters" class="anagram-letters"></div>
+            <div class="anagram-btn-row">
+                <button class="game-action-btn small-btn" onclick="anagramClear()">ОЧИСТИТЬ</button>
+                <button class="game-action-btn small-btn" onclick="checkAnagram()">ПРОВЕРИТЬ</button>
+            </div>
+        </div>
+        <div id="anagram-round-info" class="oracle-round-info">Слово 1 / 4</div>
+        <div id="anagram-result" class="game-result"></div>
+    </div>
+</div>
+
+<div id="modal-7" class="game-modal">
+    <div class="modal-content wide">
+        <button class="modal-close" onclick="closeModal(7)">✕</button>
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="morse" class="modal-header-img">
+            <h3 class="modal-title">Морзе Эльдарии</h3>
+        </div>
+        <p class="modal-desc">Древние посылают сигналы точками и тире. Расшифруй каждое слово используя таблицу!</p>
+        <div class="morse-area">
+            <div class="morse-signal-box">
+                <div class="morse-signal-label">СИГНАЛ</div>
+                <div id="morse-signal" class="morse-signal"></div>
+                <button class="morse-play-btn" id="morse-play-btn" onclick="playMorseSound()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/727/727218.png" alt="play" class="morse-play-icon">
+                    ВОСПРОИЗВЕСТИ
+                </button>
+            </div>
+            <details class="morse-table-details">
+                <summary class="morse-table-summary">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="t" class="btn-icon-sm">
+                    ТАБЛИЦА МОРЗЕ
+                </summary>
+                <div id="morse-table" class="morse-table"></div>
+            </details>
+            <div class="morse-input-row">
+                <input type="text" id="morse-answer" class="game-text-input" placeholder="Введи слово..." maxlength="15">
+                <button class="game-action-btn small-btn" onclick="checkMorse()">ПРОВЕРИТЬ</button>
+            </div>
+        </div>
+        <div id="morse-round-info" class="oracle-round-info">Слово 1 / 4</div>
+        <div id="morse-result" class="game-result"></div>
+        <div id="morse-attempts" class="attempts-display"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
